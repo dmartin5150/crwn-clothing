@@ -20,10 +20,10 @@ export const UserProvider = ({children}) => {
       if (user) {
         createUserDocumentFromAuth(user);
       }
-      console.log('Setting user: ', user);
+
       setCurrentUser(user);
 
-    })
+    });
 
     return unsubscribe;
   },[])
