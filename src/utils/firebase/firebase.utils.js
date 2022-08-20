@@ -10,7 +10,7 @@ import {
   onAuthStateChanged
 } from "firebase/auth";
 
-import { getFirestore, doc, getDoc, setDoc, collection,writeBatch } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, collection, writeBatch, query, getDocs } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,6 +21,8 @@ const firebaseConfig = {
   messagingSenderId: "666743720787",
   appId: "1:666743720787:web:2e628ac06079cdf6b6efa6",
 };
+
+
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
@@ -52,6 +54,26 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   console.log('done');
 
 }
+
+
+export const getCategoriesAndDocuments = async () => {
+
+  const collectionRef = collection(db, 'categories');
+
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot)=> {
+    const {title,items} = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+
+  },{});
+
+  return categoryMap;
+
+
+}
  
 export const createUserDocumentFromAuth = async (userAuth,additionalInformation = {}) => {
   if (!userAuth) {
@@ -72,6 +94,11 @@ export const createUserDocumentFromAuth = async (userAuth,additionalInformation 
         email,
         createdAt,
         ...additionalInformation
+      });
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
       });
     } catch (error) {
       console.log("error creating users", error.message);
