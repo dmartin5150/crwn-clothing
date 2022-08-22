@@ -10,7 +10,7 @@ import {
 } from "./checkout-item.styles.jsx";
 import { useContext } from "react";
 
-import { CartContext } from "../../contexts/cart.context";
+import { CartContext } from "../../contexts/cart.context.jsx";
 
 const CheckOutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;

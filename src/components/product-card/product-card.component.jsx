@@ -2,7 +2,7 @@ import {ProductCardContainer, Footer} from './product-card.styles.jsx';
 import {useContext}  from 'react';
 import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
 
-import { CartContext } from '../../contexts/cart.context';
+import { CartContext } from '../../contexts/cart.context.jsx';
 
 
 const  ProductCard = ({product}) => {

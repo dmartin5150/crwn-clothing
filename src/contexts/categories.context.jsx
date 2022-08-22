@@ -4,30 +4,34 @@ import {createContext, useState, useEffect} from 'react';
 import { getCategoriesAndDocuments } from '../utils/firebase/firebase.utils.js';
 
 export const CategoriesContext = createContext({
-  categoriesMap: {},
-  setProducts: ()=>null
+  categoriesMap: {}
 });
 
 
 export const CategoriesProvider = ({children}) => {
 
-  const [categoriesMap,setCategoriesMap] = useState([{}]);
+  const [categoriesMap,setCategoriesMap] = useState({});
 
-
+  // console.log('in categories map')
+  // console.log('cat map', categoriesMap)
   useEffect(() => {
+    console.log('in User effect categories map')
     const getCategoriesMap = async () => {
-      // console.log('in categories map')
-      const categoryMap = await getCategoriesAndDocuments();
-      // console.log('map', categoryMap);
+
+      const categoryMap = await getCategoriesAndDocuments('categories');
+      console.log('Created map', categoryMap);
       setCategoriesMap(categoryMap);
     }
     getCategoriesMap();
 
   },[]);
 
+  useEffect(()=>{
+    console.log("Categories Context updated Map: ", categoriesMap)
+  },[categoriesMap])
 
 
-  const value = {categoriesMap,setCategoriesMap};
+  const value = {categoriesMap};
 
   return(<CategoriesContext.Provider value={value}>{children}</CategoriesContext.Provider>)
 
