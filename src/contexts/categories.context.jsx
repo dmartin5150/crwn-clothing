@@ -12,23 +12,19 @@ export const CategoriesProvider = ({children}) => {
 
   const [categoriesMap,setCategoriesMap] = useState({});
 
-  // console.log('in categories map')
-  // console.log('cat map', categoriesMap)
+
   useEffect(() => {
-    console.log('in User effect categories map')
+
     const getCategoriesMap = async () => {
 
       const categoryMap = await getCategoriesAndDocuments('categories');
-      console.log('Created map', categoryMap);
       setCategoriesMap(categoryMap);
     }
     getCategoriesMap();
 
   },[]);
 
-  useEffect(()=>{
-    console.log("Categories Context updated Map: ", categoriesMap)
-  },[categoriesMap])
+
 
 
   const value = {categoriesMap};
