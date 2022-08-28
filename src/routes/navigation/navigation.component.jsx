@@ -11,14 +11,14 @@ import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import {useSelector} from 'react-redux';
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
 
 const Navigation = () => {
 
 
   const currentUser = useSelector(selectCurrentUser);
-
-  const {isCartOpen} = useContext(CartContext);
-
+  const isCartOpen = useSelector(selectIsCartOpen);
+  console.log("nav is cart open", isCartOpen);
 
   return (
     <Fragment>
