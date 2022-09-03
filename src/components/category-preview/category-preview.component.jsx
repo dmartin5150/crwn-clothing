@@ -1,3 +1,4 @@
+import React from 'react';
 import {CategoryPreviewContainer, Title,Preview} from './category-preview.styles.jsx';
 import ProductCard from '../product-card/product-card.component';
 

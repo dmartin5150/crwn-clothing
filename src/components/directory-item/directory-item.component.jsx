@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 import {BackgroundImage, Body, DirectoryItemContainer} from "./directory-item.styles.jsx";
-
+import React from 'react';
 const DirectoryItem = ({ category }) => {
   const {imageUrl, title, route} = category;
   const navigate = useNavigate();

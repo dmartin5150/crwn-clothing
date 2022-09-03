@@ -1,3 +1,4 @@
+import React from 'react';
 import {ProductCardContainer, Footer} from './product-card.styles.jsx';
 import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
 import { addItemToCart } from '../../store/cart/cart.action.js';

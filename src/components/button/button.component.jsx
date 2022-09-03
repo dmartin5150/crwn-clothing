@@ -1,5 +1,5 @@
 import {BaseButton, GoogleSignInButton, InvertedButton} from './button.styles.jsx';
-
+import React from 'react';
 
 export const BUTTON_TYPE_CLASSES = {
   base: 'base',

@@ -1,3 +1,4 @@
+import React from 'react';
 import { CategoryTitle, CategoryContainer } from "./category.styles.jsx";
 
 import ProductCard from "../../components/product-card/product-card.component";

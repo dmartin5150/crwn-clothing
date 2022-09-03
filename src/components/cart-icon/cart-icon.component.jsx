@@ -1,3 +1,4 @@
+import React from 'react';
 import {CartIconContainer, ShoppingIcon, ItemCount} from './cart-icon.styles.jsx';
 // import {useContext} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
