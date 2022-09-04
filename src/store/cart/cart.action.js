@@ -38,7 +38,6 @@ export const getCartItemDescription = (newCartItems) => {
       return createAction(CART_ACTION_TYPES.SET_CART_ITEMS,newItems);
     }
     const newItems = [...cartItems, { ...productToAdd, quantity: 1 }]
-    console.log('newitems', newItems);
     return createAction(CART_ACTION_TYPES.SET_CART_ITEMS,newItems);
   };
 
