@@ -5,12 +5,10 @@ import App from "./App";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { CartProvider } from "./contexts/cart.context.jsx";
-import { store, persistor } from "./store/store";
+import { store,persistor } from "./store/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { Elements } from "@stripe/react-stripe-js";
 import { stripePromise } from "./utils/stripe/stripe.utils";
-import { CATEGORIES_INITIAL_STATE } from "./store/categories/category.reducer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,11 +16,9 @@ root.render(
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <BrowserRouter>
-          <CartProvider>
             <Elements stripe={stripePromise}>
               <App />
             </Elements>
-          </CartProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>
